@@ -75,25 +75,25 @@ var CommentBox = React.createClass({
     return (
       <div className="commentBox">
         <h1>Comments</h1>
-        <CommentList data={this.state.data} />
+        <SittersList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
     );
   }
 });
 
-var CommentList = React.createClass({
+var SittersList = React.createClass({
   render: function() {
-    var commentNodes = this.props.data.map(function(comment) {
+    var sittersNodes = this.props.data.map(function(sitter) {
       return (
-        <Comment author={comment.author} key={comment.id}>
-          {comment.text}
-        </Comment>
+        <Sitter author={sitter.email} key={sitter.id}>
+          {sitter.name}
+        </Sitter>
       );
     });
     return (
-      <div className="commentList">
-        {commentNodes}
+      <div className="sittersList">
+        {sittersNodes}
       </div>
     );
   }

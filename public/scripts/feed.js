@@ -15,7 +15,7 @@ var SittersList = React.createClass({
   render: function() {
     var sitterNodes = this.props.data.map(function (sitter) {
       return(
-        <Sitter key={sitter.email}>
+        <Sitter key={sitter.id}>
           <h3>
             {sitter.name}
           </h3>
@@ -104,7 +104,7 @@ var SitterBox = React.createClass({
       url: this.props.url,
       dataType: 'json',
       type: 'POST',
-      data: comment,
+      data: sitter,
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
