@@ -27,6 +27,16 @@ body {
   font-family: "Avenir-heavy",Helvetica;
 }
 
+h2 {
+  font-size: 70px;
+  width: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 #wrapper {
   width: 750px;
   margin: 0 auto;
@@ -37,11 +47,19 @@ header {
   flex-direction: row;
   background: #7ad0f8;
   color: #fff;
-  padding: 96px 5.3%;
+  padding: 96px 5.3% 0px 5.3%;
 }
 
 section {
   padding: 19px 4%;
+  color: #fff;
+}
+
+section a {
+  font-family: "Avenir-heavy-oblique", Helvetica;
+  font-size: 28px;
+  text-align: end;
+  width: 50%;
 }
 
 .greeting {
@@ -55,21 +73,64 @@ section {
 }
 
 img.profile {
-  width: 150px;
-  height: 150px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 6px solid #fff;
 }
 
-#date_icon {
+.date-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 25px;
+}
+
+svg#date_icon {
   width: 10%;
+  padding-right: 5%;
+}
+
+#date_icon path, line, rect {
+  stroke: #fff;
+}
+#date_icon polygon, rect {
+  fill: #fff;
 }
 
 .date {
   font-family: "Avenir-heavy-oblique",Helvetica;
   font-size: 35px;
-  margin-top: 25px;
 }
 
-#filter {
-  width: 20%;
-  height: 20%;
+svg#filter {
+  width: 24%;
+  height: 24%;
+}
+
+svg#filter path {
+  fill: #fff;
+}
+
+section.top-rated {
+  background: #7ad0f8;
+}
+
+.category {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+section.top-rated svg {
+  width: 96px;
+  height: 96px;
+}
+
+section.top-rated svg path {
+  fill: #fff;
+}
+
+.sitter-name {
+  font-size: 28px;
 }
