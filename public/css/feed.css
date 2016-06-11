@@ -1,0 +1,75 @@
+@font-face {
+  font-family: Avenir-heavy;
+  src: url(../avenir-lt-std/AvenirLTStd-Heavy.woff);
+}
+
+@font-face {
+  font-family: Avenir-heavy-oblique;
+  src: url(../avenir-lt-std/AvenirLTStd-HeavyOblique.woff);
+}
+
+@font-face {
+  font-family: Avenir-book;
+  src: url(../avenir-lt-std/AvenirLTStd-Book.woff);
+}
+
+@font-face {
+  font-family: Avenir-heavy-Light;
+  src: url(../avenir-lt-std/AvenirLTStd-Light.woff);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Avenir-heavy",Helvetica;
+}
+
+#wrapper {
+  width: 750px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  background: #7ad0f8;
+  color: #fff;
+  padding: 96px 5.3%;
+}
+
+section {
+  padding: 19px 4%;
+}
+
+.greeting {
+  font-family: "Avenir-book",Helvetica;
+  font-size: 28px;
+  margin-top: 9px;
+}
+
+.name {
+  font-size: 40px;
+}
+
+img.profile {
+  width: 150px;
+  height: 150px;
+}
+
+#date_icon {
+  width: 10%;
+}
+
+.date {
+  font-family: "Avenir-heavy-oblique",Helvetica;
+  font-size: 35px;
+  margin-top: 25px;
+}
+
+#filter {
+  width: 20%;
+  height: 20%;
+}
