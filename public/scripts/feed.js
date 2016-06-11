@@ -12,7 +12,7 @@ var SittersList = React.createClass({
   render: function() {
     var sitterNodes = this.props.data.map(function (sitter) {
       return(
-        <Sitter key={sitter.email}>
+        <Sitter key={sitter._id}>
           <p>{sitter.profilePictureURL}</p>
           <h3 class="sitter-name">
             {sitter.name}
