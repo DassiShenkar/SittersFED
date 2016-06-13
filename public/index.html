@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>React Tutorial</title>
+    <title>Sitters | feed</title>
     <!-- Not present in the tutorial. Just for basic styling. -->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" -->
            <!--integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
@@ -17,7 +17,7 @@
   <body>
     <div id="wrapper">
       <header>
-        <img class="profile" src="images/ilana.png"/>
+        <img class="profile small-profile" src="images/ilana.png"/>
         <section>
           <p class="greeting">Hello</p>
           <h3 class="name">Ilana Krybus</h3>
@@ -28,13 +28,12 @@
             <p class="date">27/01/2016 | 19:00</p>
           </div>
         </section>
-        <svg id ="filter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+        <svg id ="filter" xmlns="http://www.w3.org/2000/svg" version="1.1"
              x="0px"
              y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve"><path d="M50,0C22.4,0,0,22.4,0,50c0,27.6,22.4,50,50,50c27.6,0,50-22.4,50-50C100,22.4,77.6,0,50,0z M50,96.3  C24.5,96.3,3.7,75.5,3.7,50S24.5,3.7,50,3.7S96.3,24.5,96.3,50S75.5,96.3,50,96.3z"/><path d="M41.4,58.6v17.7l17.1,0.1V58.6l18.2-24.2H23.2L41.4,58.6z M54.8,57.4v15.3l-9.7-0.1V57.4L30.7,38.2h38.7L54.8,57.4z"/></svg>
       </header>
       <section class="top-rated">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px"
-             y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M76.965,90.416L50,76.24L23.035,90.416l5.15-30.025L6.369,39.125l30.148-4.381L50,7.426l13.482,27.319l30.149,4.381  L71.814,60.391L76.965,90.416z M27.859,46.108L38.93,56.898l-2.614,15.238L50,64.943l13.684,7.193L61.07,56.898l11.071-10.791  l-15.3-2.223L50,30.021l-6.842,13.863L27.859,46.108z"/></svg>
+        <div class="icon star-container"></div>
         <div class="category">
           <h2>TOP RATED</h2>
           <a href="#">See all</a>
@@ -43,11 +42,7 @@
       </section>
       <div id="content"></div>
     </div>
-    <!--<script type="text/babel" src="scripts/example.js"></script>-->
     <script type="text/babel" src="scripts/feed.js">
-
-      // To get started with this tutorial running your own code, simply remove
-      // the script tag loading scripts/example.js and start writing code here.
     </script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 var Sitter = React.createClass({
 
   render: function () {
-    var css = {background: 'url('+this.props.imgUrl+')'};
+    var css = {background: 'url('+this.props.imgUrl+') no-repeat center center'};
     return (
       <div className="sitter" style={css}>
         {this.props.children}
@@ -15,13 +15,21 @@ var SittersList = React.createClass({
     var sitterNodes = this.props.data.map(function (sitter) {
       return(
         <Sitter key={sitter._id} imgUrl={sitter.fullPictureURL}>
-          <img className="profile" src={sitter.profilePictureURL}/>
-          <h3 className="sitter-name">
-            {sitter.name}
-          </h3>
-          <p>
-            {sitter.rating}
-          </p>
+            <ul className="sitter-score">
+              <li>
+                <div className="star-container">
+                </div>
+              </li>
+              <li>
+                {sitter.rating}
+              </li>
+            </ul>
+          <section className="sitter-info">
+            <img className="profile large-profile" src={sitter.profilePictureURL}/>
+            <h3 className="sitter-name">
+              {sitter.name}
+            </h3>
+          </section>
         </Sitter>
       );
     });
