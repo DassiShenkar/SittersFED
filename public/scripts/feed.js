@@ -13,7 +13,7 @@ var SittersList = React.createClass({
     var sitterNodes = this.props.data.map(function (sitter) {
       return(
         <Sitter key={sitter._id}>
-          <p>{sitter.profilePictureURL}</p>
+          <img src={sitter.profilePictureURL}/>
           <h3 class="sitter-name">
             {sitter.name}
           </h3>
