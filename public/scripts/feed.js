@@ -1,7 +1,9 @@
 var Sitter = React.createClass({
+
   render: function () {
+    var css = {background: 'url('+this.props.imgUrl+')'};
     return (
-      <div className="sitter">
+      <div className="sitter" style={css}>
         {this.props.children}
       </div>
     );
@@ -12,9 +14,9 @@ var SittersList = React.createClass({
   render: function() {
     var sitterNodes = this.props.data.map(function (sitter) {
       return(
-        <Sitter key={sitter._id}>
-          <img src={sitter.profilePictureURL}/>
-          <h3 class="sitter-name">
+        <Sitter key={sitter._id} imgUrl={sitter.fullPictureURL}>
+          <img className="profile" src={sitter.profilePictureURL}/>
+          <h3 className="sitter-name">
             {sitter.name}
           </h3>
           <p>
