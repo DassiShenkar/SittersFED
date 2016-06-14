@@ -1,0 +1,91 @@
+@font-face {
+  font-family: Avenir-heavy;
+  src: url(../avenir-lt-std/AvenirLTStd-Heavy.woff);
+}
+
+@font-face {
+  font-family: Avenir-heavy-oblique;
+  src: url(../avenir-lt-std/AvenirLTStd-HeavyOblique.woff);
+}
+
+@font-face {
+  font-family: Avenir-book;
+  src: url(../avenir-lt-std/AvenirLTStd-Book.woff);
+}
+
+@font-face {
+  font-family: Avenir-Light;
+  src: url(../avenir-lt-std/AvenirLTStd-Light.woff);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+}
+
+body {
+  font-family: "Avenir-heavy",Helvetica;
+}
+
+#wrapper {
+  max-width: 754px;
+  margin: 0 auto;
+}
+
+img.fullPicture {
+  border: 6px solid #fff;
+}
+
+#profilePicture{
+  width: 750px;
+  height : 545px;
+  background: url("http://res.cloudinary.com/sitters/image/upload/v1465749588/sitterFull4_occaty.png") no-repeat;
+}
+
+.profilePicture p{
+  font-family: "Avenir-book",Helvetica;
+  font-size: 35px;
+}
+
+.profilePicture h3{
+  font-family: "Avenir-heavy",Helvetica;
+  font-size: 50px;
+}
+
+.knowMore p{
+  font-family: "Avenir-heavy",Helvetica;
+  font-size: 42px;
+}
+.knowMore a{
+  font-family: "Avenir-Light",Helvetica; /* TODO: download Light Oblique*/
+  font-size: 30px;
+  text-decoration: none;
+  color: #fff;
+  padding-left: 15px;
+  padding-top: 12px;
+}
+
+.profilePicture{
+  margin-top: 85px;
+  margin-left: 5.3%;
+}
+
+.knowMore{
+  display: flex;
+  flex-direction: row;
+  margin-top: 283px;
+  margin-left: 10.2%;
+}
+
+.sitterDetails{
+  width: 750px;
+  height: 283px;
+  background: #444444;
+}

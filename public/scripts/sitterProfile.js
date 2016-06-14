@@ -1,27 +1,43 @@
-var Sitter = React.createClass({
-  render: function () {
+class Sitter extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  render() {
+    var css = {background: 'url('+this.props.imgUrl+') no-repeat center center'};
     return (
-      <div className="sitter">
-        <h2 className="sitterMail">
-          {this.props.email}
-        </h2>
+      <div className="sitter" style={css}>
         {this.props.children}
       </div>
     );
   }
-});
+}
 
-var SittersList = React.createClass({
-  render: function() {
+class SittersList extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
     var sitterNodes = this.props.data.map(function (sitter) {
-      return(
-        <Sitter key={sitter.email}>
-          <h3>
-            {sitter.name}
-          </h3>
-          <p>
-            {sitter.email}
-          </p>
+      return (
+        <Sitter key={sitter._id} imgUrl={sitter.fullPictureURL} email={sitter.email}>
+         <!-- <ul className="sitter-score">
+            <li>
+              <div className="star-container">
+              </div>
+            </li>
+            <li>
+              {sitter.rating}
+            </li>
+          </ul>-->
+          <section className="sitter-info">
+            <img className="profile large-profile" src={sitter.profilePictureURL}/>
+            <h3 className="sitter-name">
+              {sitter.name}
+            </h3>
+          </section>
         </Sitter>
       );
     });
@@ -31,110 +47,45 @@ var SittersList = React.createClass({
       </div>
     );
   }
-});
+}
 
-var CommentForm = React.createClass({
-  getInitialState: function () {
-    return {email: '', name: ''};
-  },
-
-  handleEmailChange: function (e) {
-    this.setState({email: e.target.value});
-  },
-
-  handleNameChange: function (e) {
-    this.setState({name: e.target.value});
-  },
-
-  handleSubmit: function (e) {
-    e.preventDefault();
-    var email = this.state.email.trim();
-    var name = this.state.name.trim();
-    if (!email || !name) {
-      return;
-    }
-    this.props.onSitterSubmit({email: email, name: name});
-    this.setState({email: '', name: ''});
-  },
-
-  render: function() {
-    return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Your email"
-          value={this.state.email}
-          onChange={this.handleEmailChange}
-        />
-        <input
-          type="text"
-          placeholder="Your name"
-          value={this.state.name}
-          onChange={this.handleNameChange}
-        />
-        <input type="submit" value="Post"/>
-      </form>
-    );
+class SitterBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {data: []};
   }
-});
 
+  componentDidMount() {
+    this.loadSittersFromServer();
+    setInterval(this.loadSittersFromServer, this.props.pollInterval);
+  }
 
-var SitterBox = React.createClass({
-
-  loadSittersFromServer: function () {
+  loadSittersFromServer() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
-      cache: false,
-      success: function (data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-
-  handleSitterSubmit: function (sitter) {
-    var sitters = this.state.data;
-    sitter.id = Date.now();
-    var newSitters = sitters.concat([sitter]);
-    this.setState({data: newSitters});
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
+      contentType: "application/json",
       type: 'POST',
-      data: comment,
+      data: JSON.stringify({email : "sitter1@gmail.com"}),
       success: function(data) {
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
-        this.setState({data: sitters});
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
+  }
 
-  getInitialState: function () {
-    return {data: []};
-  },
-
-  componentDidMount: function () {
-    this.loadSittersFromServer();
-    setInterval(this.loadSittersFromServer, this.props.pollInterval)
-  },
-  render: function () {
+  render() {
     return (
-      <div className="sittersBox">
-        <h1>Sitters</h1>
+      <div className="top-rated-list">
         <SittersList data={this.state.data}/>
-        <CommentForm onSitterSubmit={this.handleSitterSubmit}/>
       </div>
     );
   }
-});
+};
 
 ReactDOM.render(
-  <SitterBox url="https://sitters-ws.herokuapp.com/getSitterByEmail" pollInterval={2000}/>,
-  document.getElementById('content')
+  <SitterBox url="https://sitters-ws.herokuapp.com/getSitterByEmail/" pollInterval={2000}/>,
+  document.getElementById('reviewsContent')
 );
