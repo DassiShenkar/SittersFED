@@ -173,7 +173,13 @@ ul.sitter-score {
 }
 
 li .star-container {
-  width: 32px;
-  height: 32px;
+  width: 56px;
+  height: 50px;
   background-position: right center;
+}
+
+a.sitter-profile-link {
+  display: block;
+  width: 100%;
+  height: 100%
 }
