@@ -18,6 +18,11 @@
   src: url(../avenir-lt-std/AvenirLTStd-Light.woff);
 }
 
+@font-face {
+  font-family: Avenir-light-oblique;
+  src: url(../avenir-lt-std/AvenirLTStd-LightOblique.woff);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -34,6 +39,10 @@ body {
   font-family: "Avenir-heavy",Helvetica;
 }
 
+a {
+  text-decoration: none;
+}
+
 #wrapper {
   max-width: 754px;
   margin: 0 auto;
@@ -46,6 +55,7 @@ img.fullPicture {
 #profilePicture{
   width: 750px;
   height : 545px;
+  background: url('http://res.cloudinary.com/sitters/image/upload/v1465749588/sitterFull2_bybczt.png') no-repeat center center;
 }
 
 .profilePicture p{
@@ -63,7 +73,7 @@ img.fullPicture {
   font-size: 42px;
 }
 .knowMore a{
-  font-family: "Avenir-Light",Helvetica; /* TODO: download Light Oblique*/
+  font-family: "Avenir-light-oblique",Helvetica;
   font-size: 30px;
   text-decoration: none;
   color: #fff;
@@ -102,4 +112,151 @@ img.fullPicture {
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125"><path d="M78.2 58.2C81.1 55.8 83 52 83 48c0-6.9-5.6-13-12-13s-12 6.1-12 13c0 4 1.9 7.8 4.8 10.2 -1.3 0.5-2.5 1-3.7 1.7 -3.8-4.5-8.8-8-14.6-9.7C49.9 47.1 53 41.8 53 36c0-9.1-7.5-17-16-17s-16 7.9-16 17c0 5.8 3.1 11.1 7.5 14.2C16.1 53.9 7 65.4 7 79c0 1.1 0.9 2 2 2h82c1.1 0 2-0.9 2-2C93 69.4 86.8 61.2 78.2 58.2zM63 48c0-4.2 3.5-9 8-9s8 4.8 8 9c0 4.2-3.5 9-8 9S63 52.2 63 48zM25 36c0-6.1 5.1-13 12-13s12 6.9 12 13 -5.1 13-12 13S25 42.1 25 36zM11.1 77c1-13.4 12.3-24 25.9-24s24.9 10.6 25.9 24H11.1zM66.9 77c-0.3-5-1.9-9.8-4.5-13.8C65 61.8 67.9 61 71 61c9.2 0 16.9 7 17.9 16H66.9z"/></svg>') no-repeat center center;
 }
 
+.tableInfo{
+  width:500px;
+  height: 145px;
+  margin: 0px auto;
+  margin-top: 60px;
+  font-family: "Avenir-book",Helvetica;
+}
 
+.tableInfo tr{
+  margin: 0px auto;
+}
+
+.tableInfo td{
+   text-align: center;
+}
+
+.middleRow{
+  margin-top: 23px;
+}
+
+.lastRow{
+  margin-top:10px;
+}
+
+
+.sitter-header{
+  background: url('http://res.cloudinary.com/sitters/image/upload/v1465749588/sitterFull2_bybczt.png') no-repeat center center;
+  width: 750px;
+  height : 545px;
+}
+
+.sitterInfo {
+  margin-left: 10px;
+}
+
+.reviewDate, .reviewName {
+  font-size: 28px;
+}
+
+.reviewRating {
+  font-family: "Avenir-Light",Helvetica;
+  font-size: 30px;
+}
+
+.reviewDate {
+  font-family: "Avenir-Light",Helvetica;
+}
+
+.reviewName {
+  font-family: "Avenir-heavy",Helvetica;
+}
+
+.sitterInfo svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+th.icon {
+  width: 50%;
+  height: 0;
+  padding-top: 48%;
+  position: relative;
+}
+
+th.icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-text {
+  padding: 30px;
+  font-family: "Avenir-book",Helvetica;
+  font-size: 30px;
+}
+
+.parent-picture {
+  width: 145px;
+  height: 145px;
+}
+
+
+.contact-sitter {
+  height:100px;
+  margin:0px auto;
+  margin-top:100px;
+}
+.contact-sitter svg{
+  width:100px;
+  margin: auto;
+  display: block;
+}
+
+.contact-sitter {
+  text-align: center;
+}
+
+.icon-container {
+  width: 50%;
+  height: 0;
+  padding-top: 48%;
+  position: relative;
+}
+
+.contact-sitter span{
+  color: #f7a1a1;
+}
+.contact-sitter a{
+  text-decoration: none;
+  color: #f7a1a1;
+
+}
+
+.contact-sitter a:visited{
+  color: #f7a1a1;
+}
+
+.contact-sitter a:hover{
+  color: #c06d6d;
+}
+
+.submit-invite{
+  margin-top:106px;
+  height: 100px;
+  background: #f7a1a1;
+  display: block;
+
+}
+
+.submit-invite p{
+  font-size:40px;
+  font-family: "Avenir-book",Helvetica;
+  color: #fff;
+}
+
+.book-now{
+  display: flex;
+  flex-direction: row;
+  margin: 0px auto;
+  padding: 4% 0;
+  width: 245px;
+}
