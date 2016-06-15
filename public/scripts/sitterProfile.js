@@ -106,14 +106,14 @@ class SitterPage extends React.Component {
 
   componentDidMount() {
     console.log("once");
-    this.loadSitterFromServer(props);
+    this.loadSitterFromServer();
     //setInterval(this.loadSittersFromServer, this.props.pollInterval);
   }
 
-  loadSitterFromServer(props) {
+  loadSitterFromServer() {
     console.log("once1");
     $.ajax({
-      url: props.url,
+      url: this.props.url,
       dataType: 'json',
       contentType: "application/json",
       type: 'POST',
