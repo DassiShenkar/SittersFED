@@ -10,11 +10,23 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+var InviteHeader = React.createClass({
+
+  render: function() {
+    var child = this.props.childes;
+    return (
+      <div className="inviteHeader">
+        <h2 className="invite-welcome">
+          Hello Linda
+        </h2>
+        <img src="" alt=""/>
+        <p>{child}</p>
+      </div>
+    );
+  }
+});
+
 var Comment = React.createClass({
-  rawMarkup: function() {
-    var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-    return { __html: rawMarkup };
-  },
 
   render: function() {
     return (
@@ -22,7 +34,6 @@ var Comment = React.createClass({
         <h2 className="commentAuthor">
           {this.props.author}
         </h2>
-        <span dangerouslySetInnerHTML={this.rawMarkup()} />
       </div>
     );
   }
@@ -33,6 +44,9 @@ var CommentBox = React.createClass({
     $.ajax({
       url: this.props.url,
       dataType: 'json',
+      contentType: "application/json",
+      type: 'POST',
+      data: JSON.stringify({email : "parent1@gmail.com"}),
       cache: false,
       success: function(data) {
         this.setState({data: data});
@@ -84,13 +98,11 @@ var CommentBox = React.createClass({
 
 var SittersList = React.createClass({
   render: function() {
-    var sittersNodes = this.props.data.map(function(sitter) {
+    // var sittersNodes = this.props.data.map(function(sitter) {
       return (
-        <Sitter author={sitter.email} key={sitter.id}>
-          {sitter.name}
-        </Sitter>
+        <InviteHeader></InviteHeader>
       );
-    });
+    // });
     return (
       <div className="sittersList">
         {sittersNodes}
@@ -141,6 +153,6 @@ var CommentForm = React.createClass({
 });
 
 ReactDOM.render(
-  <CommentBox url="/api/comments" pollInterval={2000} />,
-  document.getElementById('content')
+  <CommentBox url="https://sitters-ws.herokuapp.com/getParentByEmail/" pollInterval={2000} />,
+  document.getElementById('wrapper')
 );

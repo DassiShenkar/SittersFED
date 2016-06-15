@@ -1,68 +1,119 @@
-class Sitter extends React.Component {
+class SitterHeader extends React.Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
   }
-
   render() {
-    var css = {background: 'url('+this.props.imgUrl+') no-repeat center center'};
+    var css = {background: 'url('+this.props.data.fullPictureURL+') no-repeat center center'};
     return (
-      <div className="sitter" style={css}>
-        {this.props.children}
+      <div className="sitter-header"  style={css}>
+        <header>
+          <section id="profilePicture">
+            <section className="profilePicture">
+              <p className="greeting">Say Hello to {this.props.data.name}</p>
+              <h3 className="name">{this.props.data.name}</h3>
+              </section>
+              <section className="knowMore">
+                <p className="greeting">GET TO KNOW LINDA</p>
+                <a href="#">See more</a>
+              </section>
+          </section>
+        </header>
       </div>
     );
   }
 }
 
-class SittersList extends React.Component {
+
+class SitterInfo extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+
+    var fee = this.props.data.hourFee + "$";
+    var age = this.props.data.minAge+'-'+this.props.data.maxAge;
+
+    return(
+      <table>
+        <tr>
+          <td className="icon dollar"></td>
+          <td className="icon star"></td>
+          <td className="icon family"></td>
+        </tr>
+        <tr>
+          <td>{fee}</td>
+          <td>{this.props.data.rating}</td>
+          <td>{age}</td>
+        </tr>
+        <tr>
+          <td>Hour fee</td>
+          <td>Rating</td>
+          <td>Years</td>
+        </tr>
+      </table>
+    )
+  }
+}
+
+class Review extends React.Component {
   constructor() {
     super();
   }
 
   render() {
-    var sitterNodes = this.props.data.map(function (sitter) {
+    return (
+      <div className="review">
+        {this.props.data.children}
+      </div>
+    );
+  }
+}
+
+
+class ReviewsList extends React.Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    var reviewNodes = this.props.data.map(function (review) {
       return (
-        <Sitter key={sitter._id} imgUrl={sitter.fullPictureURL} email={sitter.email}>
-         <!-- <ul className="sitter-score">
-            <li>
-              <div className="star-container">
-              </div>
-            </li>
-            <li>
-              {sitter.rating}
-            </li>
-          </ul>-->
-          <section className="sitter-info">
-            <img className="profile large-profile" src={sitter.profilePictureURL}/>
-            <h3 className="sitter-name">
-              {sitter.name}
-            </h3>
+        <Review key={review.uuid} imgUrl={review.pictureParent}>
+          <section className="sitterInfo">
+            <img src={review.pictureParent}/>
+            <div className="star-container"/>
+            <p className="reviewRating">{review.rating} </p>
+            <p className="reviewName">{review.parentName} </p>
+            <p className="reviewDate">{review.date}</p>
+            <p className="review">{review.review}</p>
           </section>
-        </Sitter>
+        </Review>
       );
     });
     return (
-      <div className="sitterList">
-        {sitterNodes}
+      <div className="reviewList">
+        {reviewNodes}
       </div>
     );
   }
 }
 
-class SitterBox extends React.Component {
+class SitterPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {data: []};
   }
 
   componentDidMount() {
-    this.loadSittersFromServer();
-    setInterval(this.loadSittersFromServer, this.props.pollInterval);
+    console.log("once");
+    this.loadSitterFromServer(props);
+    //setInterval(this.loadSittersFromServer, this.props.pollInterval);
   }
 
-  loadSittersFromServer() {
+  loadSitterFromServer(props) {
+    console.log("once1");
     $.ajax({
-      url: this.props.url,
+      url: props.url,
       dataType: 'json',
       contentType: "application/json",
       type: 'POST',
@@ -78,14 +129,16 @@ class SitterBox extends React.Component {
 
   render() {
     return (
-      <div className="top-rated-list">
-        <SittersList data={this.state.data}/>
+      <div className="sitter-page">
+        <SitterHeader data={this.state.data}/>
+        <SitterInfo data={this.state.data}/>
+        <ReviewsList data={this.state.data}/>
       </div>
     );
   }
 };
 
 ReactDOM.render(
-  <SitterBox url="https://sitters-ws.herokuapp.com/getSitterByEmail/" pollInterval={2000}/>,
-  document.getElementById('reviewsContent')
+  <SitterPage url="https://sitters-ws.herokuapp.com/getSitterByEmail/" pollInterval={2000}/>,
+  document.getElementById('wrapper')
 );

@@ -1,12 +1,6 @@
-class Sitter extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick() {
+var Sitter = React.createClass({
 
-  }
-  render() {
+  render: function () {
     var css = {background: 'url('+this.props.imgUrl+') no-repeat center center'};
     return (
       <div className="sitter" style={css}>
@@ -14,26 +8,22 @@ class Sitter extends React.Component {
       </div>
     );
   }
-}
+});
 
-class SittersList extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
+var SittersList = React.createClass({
+  render: function() {
     var sitterNodes = this.props.data.map(function (sitter) {
-      return (
+      return(
         <Sitter key={sitter._id} imgUrl={sitter.fullPictureURL}>
-          <ul className="sitter-score">
-            <li>
-              <div className="star-container">
-              </div>
-            </li>
-            <li>
-              {sitter.rating}
-            </li>
-          </ul>
+            <ul className="sitter-score">
+              <li>
+                <div className="star-container">
+                </div>
+              </li>
+              <li>
+                {sitter.rating}
+              </li>
+            </ul>
           <section className="sitter-info">
             <img className="profile large-profile" src={sitter.profilePictureURL}/>
             <h3 className="sitter-name">
@@ -49,20 +39,20 @@ class SittersList extends React.Component {
       </div>
     );
   }
-}
+});
 
-class SitterBox extends React.Component {
-  constructor() {
-    super();
-    this.state = {data: []};
-  }
+var SitterBox = React.createClass({
 
-  componentDidMount() {
+  getInitialState: function () {
+    return {data: []};
+  },
+
+  componentDidMount: function () {
     this.loadSittersFromServer();
-    setInterval(this.loadSittersFromServer, this.props.pollInterval);
-  }
+    setInterval(this.loadSittersFromServer, this.props.pollInterval)
+  },
 
-  loadSittersFromServer() {
+  loadSittersFromServer: function () {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -73,16 +63,16 @@ class SitterBox extends React.Component {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  }
+  },
 
-  render() {
+  render: function () {
     return (
       <div className="top-rated-list">
         <SittersList data={this.state.data}/>
       </div>
     );
   }
-};
+});
 
 ReactDOM.render(
   <SitterBox url="https://sitters-ws.herokuapp.com/getTopRatedSitters" pollInterval={2000}/>,

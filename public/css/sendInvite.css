@@ -1,0 +1,24 @@
+@font-face {
+  font-family: Avenir-heavy;
+  src: url(../avenir-lt-std/AvenirLTStd-Heavy.woff);
+}
+
+@font-face {
+  font-family: Avenir-heavy-oblique;
+  src: url(../avenir-lt-std/AvenirLTStd-HeavyOblique.woff);
+}
+
+@font-face {
+  font-family: Avenir-book;
+  src: url(../avenir-lt-std/AvenirLTStd-Book.woff);
+}
+
+@font-face {
+  font-family: Avenir-Light;
+  src: url(../avenir-lt-std/AvenirLTStd-Light.woff);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
