@@ -165,17 +165,6 @@ img.fullPicture {
   left: 0;
 }
 
-th.icon {
-  width: 56px;
-  height: 52px;
-  position: relative;
-}
-
-th.icon svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .review-container {
   display: flex;
@@ -262,3 +251,15 @@ th.icon svg {
   display: inline-block;
 }
 
+th.icon {
+  width: 25%;
+  height: 0;
+  padding-top: 48%;
+  position: relative;
+}
+
+th.icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
