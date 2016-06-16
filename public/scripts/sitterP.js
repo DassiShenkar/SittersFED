@@ -74,6 +74,7 @@ var ReviewBox = React.createClass({
 });
 
 ReactDOM.render(
+
   <ReviewBox url="https://sitters-ws.herokuapp.com/getReviewsBySitterEmail" pollInterval={2000}/>,
   document.getElementById('content')
 );
