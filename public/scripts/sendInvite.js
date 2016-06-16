@@ -95,7 +95,6 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
         <SittersList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>
@@ -177,11 +176,6 @@ var CommentForm = React.createClass({
     var endTime = time + 2;
     var allergies = this.state.allergies.trim();
 
-    // var author = this.state.author.trim();
-    // var text = this.state.text.trim();
-    // if (!text || !author) {
-    //   return;
-    // }
     var inviteJSON = {
       "sitterEmail": sitterEmail,
       "parentEmail": parentEmail,
@@ -201,7 +195,7 @@ var CommentForm = React.createClass({
   render: function() {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
-        <table class="">
+        <table class="tableInfo">
           <thead>
           <th class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125">  ><path fill="#f7a1a1" d="M44.8 82.1c-5-0.5-9.9-1.7-14.7-3.4 -4.7-1.7-9.1-4-12.9-6.8l9.2-13.6c3.3 2.3 6.5 4.2 9.6 5.5 3.1 1.4 6.3 2.3 9.5 2.9V54.4c-4.1-1-7.7-2-10.8-3.3 -3.1-1.2-5.7-2.7-7.8-4.5 -2.1-1.7-3.6-3.8-4.7-6.1 -1.1-2.3-1.6-5.1-1.6-8.3v-0.2c0-3 0.5-5.8 1.6-8.3 1.1-2.5 2.7-4.7 4.8-6.6 2.1-1.9 4.6-3.4 7.7-4.6 3-1.2 6.5-1.9 10.4-2.1V4.7h10.6v6.1c4.2 0.5 8.1 1.4 11.7 2.8 3.5 1.4 6.9 3.1 9.9 5.2L68.9 32.6c-2.1-1.5-4.3-2.8-6.7-3.8 -2.4-1-4.7-1.8-7-2.4v11.9c4.1 1 7.7 2.1 10.7 3.3 3 1.3 5.6 2.8 7.6 4.5 2 1.7 3.6 3.8 4.6 6.2 1 2.4 1.5 5.2 1.5 8.3v0.2c0 3.1-0.6 6-1.7 8.4 -1.2 2.5-2.8 4.7-4.9 6.5 -2.1 1.8-4.7 3.3-7.6 4.4 -3 1.1-6.3 1.8-9.9 2.1v10H44.8V82.1zM45.6 25.5c-2.5 0.2-4.3 0.8-5.4 1.7 -1.1 0.9-1.6 2.1-1.6 3.4v0.2c0 1.4 0.5 2.5 1.4 3.3 0.9 0.9 2.8 1.7 5.6 2.4V25.5zM55.1 67.3c4.6-0.5 6.9-2.2 6.9-5.2v-0.2c0-1.4-0.5-2.5-1.4-3.4 -1-0.9-2.8-1.7-5.4-2.5V67.3z"/></svg>
@@ -214,21 +208,22 @@ var CommentForm = React.createClass({
           </th>
           </thead>
           <tbody>
-          <tr class="">
+          <tr class="middleRow">
             <td><label>Date <input type="date" value={this.state.date} onChange={this.handleDateChange}/> </label></td>
             <td><label>Time <input type="time" value={this.state.time} onChange={this.handleTimeChange}/> </label></td>
-            <td><label>Location <input type="text" value={this.state.location} onChange={this.handleLocationChange}/></label></td>
+            <td><label>Location <input type="text" placeholder="Arlozorov 52 Tel Aviv" value={this.state.location} onChange={this.handleLocationChange}/></label></td>
           </tr>
           </tbody>
         </table>
         <label>Reoccurring</label>
-        <label><input type="radio" name="reoccurring" value="none" value={this.state.none} onChange={this.handleReoccurringNoneChange}/>None</label>
-        <label><input type="radio" name="reoccurring" value="weekly" value={this.state.weekly} onChange={this.handleReoccurringWeeklyChange}/>Weekly</label>
-        <label><input type="radio" name="reoccurring" value="monthly" value={this.state.monthly} onChange={this.handleReoccurringMonthlyChange}/>Monthly</label>
-        <label><input type="text" value={this.state.allergies} onChange={this.handleAllergiesChange}/>Allergies</label>
-        <textarea name="message" id="msg" cols="30" rows="10" value={this.state.reviewText} onChange={this.handleReviewTextChange}></textarea>
+        <label className="radio-inline"><input defaultChecked="true"  type="radio" name="reoccurring"  value="none"/>None</label>
+        <label className="radio-inline"><input  type="radio" name="reoccurring"  value="weekly"/>Weekly</label>
+        <label className="radio-inline"><input  type="radio" name="reoccurring"  value="monthly"/>Monthly</label> <br></br>
 
-        <input type="submit" value="Submit" />
+        <textarea name="allergies" placeholder="enter allergy details" id="aller" cols="1" rows="1" ></textarea> <br></br>
+        <textarea name="message" placeholder="write a personal message" id="msg" cols="1" rows="10" value={this.state.reviewText} onChange={this.handleReviewTextChange}></textarea> <br></br>
+
+        <input className="submit" type="submit" value="Send Invitation" />
       </form>
     );
   }
