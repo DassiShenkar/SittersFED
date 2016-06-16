@@ -42,7 +42,6 @@ a {
 }
 
 #wrapper {
-  max-width: 754px;
   margin: 0 auto;
 }
 
@@ -138,6 +137,10 @@ section.top-rated {
 
 .sitter {
   height: 545px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 section.sitter-info {
@@ -151,7 +154,7 @@ ul.sitter-score {
   text-align: right;
   font-size: 40px;
   font-family: "Avenir-Light", Helvatica;
-  padding: 4% 4% 10% 4%;
+  padding: 4%;
 }
 
 .sitter-name {
@@ -169,14 +172,11 @@ ul.sitter-score {
 }
 
 .star-container {
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125"><path fill="#fff" d="M77 90.4L50 76.2 23 90.4l5.2-30L6.4 39.1l30.1-4.4L50 7.4l13.5 27.3 30.1 4.4L71.8 60.4 77 90.4zM27.9 46.1L38.9 56.9l-2.6 15.2L50 64.9l13.7 7.2L61.1 56.9l11.1-10.8-15.3-2.2L50 30l-6.8 13.9L27.9 46.1z"/></svg>') no-repeat left center;
-}
-
-li .star-container {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125"><path fill="#fff" d="M77 90.4L50 76.2 23 90.4l5.2-30L6.4 39.1l30.1-4.4L50 7.4l13.5 27.3 30.1 4.4L71.8 60.4 77 90.4zM27.9 46.1L38.9 56.9l-2.6 15.2L50 64.9l13.7 7.2L61.1 56.9l11.1-10.8-15.3-2.2L50 30l-6.8 13.9L27.9 46.1z"/></svg>') no-repeat right center;
   width: 56px;
   height: 50px;
-  background-position: right center;
 }
+
 
 a.sitter-profile-link {
   display: block;

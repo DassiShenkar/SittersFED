@@ -55,7 +55,11 @@ img.fullPicture {
 #profilePicture{
   width: 750px;
   height : 545px;
-  background: url('http://res.cloudinary.com/sitters/image/upload/v1465749588/sitterFull2_bybczt.png') no-repeat center center;
+  background: url('http://res.cloudinary.com/sitters/image/upload/v1465749588/sitterFull2_bybczt.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .profilePicture p{

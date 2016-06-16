@@ -1,7 +1,7 @@
 var Sitter = React.createClass({
 
   render: function () {
-    var css = {background: 'url('+this.props.imgUrl+') no-repeat center center'};
+    var css = {background: 'url('+this.props.imgUrl+') no-repeat center center', backgroundSize: 'cover'}
     return (
       <div className="sitter" style={css}>
         {this.props.children}
