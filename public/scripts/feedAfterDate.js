@@ -1,6 +1,4 @@
-
-
-
+var parentEmail =  localStorage.parentEmail;
 
 var ParentFavoriteCategory = React.createClass({
 
@@ -107,7 +105,7 @@ var SitterBox = React.createClass({
       dataType: 'json',
       type : 'post',
       contentType: 'application/json',
-      data: JSON.stringify({ 'email': 'parent1@gmail.com'}),
+      data: JSON.stringify({ 'email': parentEmail}),
       success: function (data) {
         this.setState({data1: data});
       }.bind(this),
