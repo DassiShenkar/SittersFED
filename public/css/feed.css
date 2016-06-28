@@ -125,8 +125,15 @@ svg#filter path {
   fill: #fff;
 }
 
-section.top-rated {
+ section.parent-favorite, section.available-now {
   background: #7ad0f8;
+}
+section.top-rated{
+  background: #f7a1a1;
+}
+
+section.parent-favorite-before {
+  background: #88d685;
 }
 
 .category {
