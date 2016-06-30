@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/register.css" />
+</head>
+<body>
+    <div id="controller">
+      <h2>I am a:</h2>
+      <label><input id="parentchosen" type="radio" value="parent" name="radiochoose">Parent</label>
+      <label><input id="sitterchosen" type="radio" value="sitter" name="radiochoose">Sitter</label>
+    </div>
+    <div id="parent-register">
+      <form>
+        <div class="form-group row">
+          <label for="inputAge3" class="col-sm-2 form-control-label">Upload full picture</label>
+          <div class="col-sm-10">
+            <input type="file" name="pic" accept="image/*">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputAge3" class="col-sm-2 form-control-label">Partner Name</label>
+          <div class="col-sm-10">
+            <input type="text" name="partner-name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Address</label>
+          <div class="col-sm-10">
+            <div class="address">
+              <label>
+                <input type="text">
+                City
+              </label>
+            </div>
+            <div class="address">
+              <label>
+                <input type="text">
+                Street
+              </label>
+            </div>
+            <div class="address">
+              <label>
+                <input type="number">
+                House Number
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Childes</label>
+          <div class="multi-field-wrapper col-sm-10">
+            <div class="multi-fields">
+              <div class="multi-field">
+                <label>Child Name:<input  class="input" id="field1" name="prof1" type="text" placeholder="Moshe levi" data-items="8"/></label>
+                <label>Age <input  class="input" id="field2" name="prof1" type="number" placeholder="3" data-items="8"/></label>
+                <label>Upload child picture<input type="file" name="pic" accept="image/*"></label>
+                <label>Allergies <input  class="input" id="field3" name="prof1" type="text" placeholder="avocado,bamba" data-items="8"/></label>
+                <button type="button" class="remove-field btn-danger">Remove</button>
+              </div>
+            </div>
+            <button type="button" class="btn add-field btn-primary">Add child</button>
+          </div>
+        </div><br><br><br>
+        <div class="form-group row">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div id="sitter-register">
+      <form>
+        <div class="form-group row">
+          <label for="inputAge3" class="col-sm-2 form-control-label">Minimum Age</label>
+          <div class="col-sm-10">
+            <input  class="input" name="prof1" type="number" placeholder="3" id="inputAge3" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputMaxAge3" class="col-sm-2 form-control-label">Maximum Age</label>
+          <div class="col-sm-10">
+            <input  class="input" id="inputMaxAge3" name="prof1" type="number" placeholder="6" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hourFee" class="col-sm-2 form-control-label">Hour Fee in $</label>
+          <div class="col-sm-10">
+            <input  class="input" id="hourFee" name="prof1" type="number" placeholder="20" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Working Hours</label>
+          <div class="col-sm-10">
+            <div class="radio">
+              <label>
+                <input type="radio" name="workinghours" value="Mornings" checked>
+                Mornings
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="workinghours" value="Evenings">
+                Evenings
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="workinghours" value="All day">
+                All day
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Gender</label>
+          <div class="col-sm-10">
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" value="male" >
+                Male
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="gender" value="female" checked>
+                Female
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Address</label>
+          <div class="col-sm-10">
+            <div class="address">
+              <label>
+                <input type="text">
+                City
+              </label>
+            </div>
+            <div class="address">
+              <label>
+                <input type="text">
+                Street
+              </label>
+            </div>
+            <div class="address">
+              <label>
+                <input type="number">
+                House Number
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2">Upload Full Picture</label>
+          <div class="col-sm-10">
+            <div class="picture">
+                <input type="file" name="pic" accept="image/*">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </form>
+
+
+      <!--<form>-->
+        <!--<label>Minimum Age <input  class="input" id="field5" name="prof1" type="number" placeholder="3" /></label>-->
+        <!--<label>Maximum Age <input  class="input" id="field6" name="prof1" type="number" placeholder="6" /></label>-->
+        <!--<label>Hour Fee in $ <input  class="input" id="field7" name="prof1" type="number" placeholder="20" /></label>-->
+        <!--<h3>Working Hours</h3>-->
+        <!--<input type="radio" name="workinghours" value="Mornings" checked> Mornings<br>-->
+        <!--<input type="radio" name="workinghours" value="Evenings"> Evenings<br>-->
+        <!--<input type="radio" name="workinghours" value="All day"> All day<br>-->
+        <!--<h3>Gender</h3>-->
+        <!--<input type="radio" name="gender" value="male" checked> Male<br>-->
+        <!--<input type="radio" name="gender" value="female"> Female<br>-->
+        <!--<h3>Address:</h3>-->
+        <!--<label>City<input type="text"></label>-->
+        <!--<label>Street<input type="text"></label>-->
+        <!--<label>House Number<input type="number"></label>-->
+        <!--<label>Upload full picture<input type="file" name="pic" accept="image/*"></label><br>-->
+        <!--<button type="submit" class="btn btn-primary">Register</button>-->
+      <!--</form><button type="submit" class="btn btn-primary">Register</button>-->
+
+    </div>
+<script src="scripts/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+body{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#parent-register , #sitter-register{
+  display:none;
+}
+
+#sitter-register{
+  width:80%;
+  margin: 0px auto;
+}
+
+form {
+  width: 500px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  border: 2px solid #ab9e9e;
+
+  padding:20px;
+}
+
+form .form-group{
+
+}
+
+.form-group{
+  margin: 0px auto;
+}
+
+#controller {
+  width:80%;
+  margin:0px auto;
+  text-align: center;
+}
+
