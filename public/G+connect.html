@@ -125,7 +125,14 @@
           'userId': 'me'
         }).then(function(res) {
           var profile = res.result;
-          console.log(profile);
+
+
+          localStorage.profile = profile.image.url;
+          localStorage.fullname = profile.displayName;
+
+//          console.log('tryyyyyyyyyyyyyyyyyyyy');
+//          console.log('name=' + localStorage.fullname + '       picture='+localStorage.profile );
+          console.log(profile.emails);
           $('#profile').empty();
           $('#profile').append(
             $('<p><img src=\"' + profile.image.url + '\"></p>'));
