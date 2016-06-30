@@ -25,3 +25,24 @@ $('#controller input').on('change', function() {
   }
 
 });
+
+function submitFormSitter(){
+  var arrayJSON = {};
+
+  arrayJSON["email"] = "Bob";
+  arrayJSON["name"] = ;
+  arrayJSON["profilePictureURL"] = ;
+  arrayJSON["fullPictureURL"] = ;
+  arrayJSON["partner"] = ;
+  arrayJSON["childes"] = ;
+  arrayJSON["address"] = {
+    "city" : ;
+    "street" : ;
+    "houseNumber" : ;
+  };
+  arrayJSON[""] = ;
+  arrayJSON[""] = ;
+  arrayJSON["last_name"] = "Smith";
+  var json = JSON.stringify(arrayJSON);
+
+}
