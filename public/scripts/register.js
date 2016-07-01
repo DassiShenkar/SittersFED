@@ -26,23 +26,59 @@ $('#controller input').on('change', function() {
 
 });
 
-function submitFormSitter(){
+function submitFormParent() {
   var arrayJSON = {};
 
-  arrayJSON["email"] = "Bob";
-  arrayJSON["name"] = ;
-  arrayJSON["profilePictureURL"] = ;
-  arrayJSON["fullPictureURL"] = ;
-  arrayJSON["partner"] = ;
-  arrayJSON["childes"] = ;
+  arrayJSON["email"] = "parent18@gmail.com";
+  arrayJSON["password"] = "1234";
+  arrayJSON["name"] = "Arel Gindos";
+  arrayJSON["profilePictureURL"] = "www.google.com";
+  arrayJSON["fullPictureURL"] = "www.google1.com";
+  arrayJSON["partner"] = document.getElementById("partner").value;
+  //arrayJSON["childes"] = ;
   arrayJSON["address"] = {
-    "city" : ;
-    "street" : ;
-    "houseNumber" : ;
+    "city": document.getElementById("city").value,
+    "street": document.getElementById("street").value,
+    "houseNumber": document.getElementById("houseNumber").value
   };
-  arrayJSON[""] = ;
-  arrayJSON[""] = ;
-  arrayJSON["last_name"] = "Smith";
+
+
+  // $.ajax({
+  //   url: 'https://sitters-ws.herokuapp.com/getParentFavoriteSitters',
+  //   dataType: 'json',
+  //   type : 'post',
+  //   contentType: 'application/json',
+  //   data: JSON.stringify(arrayJSON),
+  //   success: function (data) {
+  //     alert(data);
+  //   }.bind(this),
+  //   error: function(xhr, status, err) {
+  //     console.error(this.props.url, status, err.toString());
+  //     alert( err.toString());
+  //   }
+  // });
+
+
   var json = JSON.stringify(arrayJSON);
+  alert(json);
+  // console.log(json);
+  $.ajax({
+    url: 'https://sitters-ws.herokuapp.com/insertParent',
+    type: "POST",
+    data: json,
+    dataType: 'json',
+    processData: false,
+    contentType: 'application/json',
+    success: function (data) {
+      alert(1234);
+      alert(data);
+    }.bind(this),
+    error: function (xhr, status, err) {
+      console.error(this.props.url, status, err.toString());
+      alert(2222);
+    }.bind(this)
+  });
 
 }
+
+

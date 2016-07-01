@@ -26,7 +26,7 @@
         <div class="form-group row">
           <label for="inputAge3" class="col-sm-2 form-control-label">Partner Name</label>
           <div class="col-sm-10">
-            <input type="text" name="partner-name">
+            <input type="text" name="partner-name" id="partner">
           </div>
         </div>
         <div class="form-group row">
@@ -34,19 +34,19 @@
           <div class="col-sm-10">
             <div class="address">
               <label>
-                <input type="text">
+                <input type="text" id="city">
                 City
               </label>
             </div>
             <div class="address">
               <label>
-                <input type="text">
+                <input type="text" id="street">
                 Street
               </label>
             </div>
             <div class="address">
               <label>
-                <input type="number">
+                <input type="number" id="houseNumber">
                 House Number
               </label>
             </div>
@@ -69,7 +69,7 @@
         </div><br><br><br>
         <div class="form-group row">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary" onclick="submitFormParent()">Register</button>
           </div>
         </div>
       </form>
@@ -168,7 +168,7 @@
         </div>
         <div class="form-group row">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary" onclick="submitFormSitter()">Register</button>
+            <button type="submit" class="btn btn-primary" onclick="">Register</button>
           </div>
         </div>
       </form>
