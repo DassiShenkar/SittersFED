@@ -85,12 +85,12 @@ function submitFormSitter() {
   arrayJSON["gender"] = $('input[name=gender]:checked', '#sitter-form').val();
   arrayJSON["profilePictureURL"] = "www.google.com";
   arrayJSON["fullPictureURL"] = "www.google1.com";
+  //TODO: add picture when cloudinary is done
   arrayJSON["address"] = {
     "city": document.getElementById("sitter-city").value,
     "street": document.getElementById("sitter-street").value,
     "houseNumber": document.getElementById("sitter-houseNumber").value
   };
-
 
   var json = JSON.stringify(arrayJSON);
   console.log(json);
