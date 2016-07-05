@@ -8,10 +8,6 @@
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
   <link rel="stylesheet" href="css/register.css" />
-  <script src='scripts/cloudinary/jquery.ui.widget.js' type='text/javascript'></script>
-  <script src='scripts/cloudinary/jquery.iframe-transport.js' type='text/javascript'></script>
-  <script src='scripts/cloudinary/jquery.fileupload.js' type='text/javascript'></script>
-  <script src='scripts/cloudinary/jquery.cloudinary.js' type='text/javascript'></script>
 </head>
 <body>
     <div id="controller">
@@ -63,10 +59,10 @@
           <div class="multi-field-wrapper col-sm-10">
             <div class="multi-fields">
               <div class="multi-field">
-                <label>Child Name:<input  class="input" id="field1" name="prof1" type="text" placeholder="Moshe levi" data-items="8"/></label>
-                <label>Age <input  class="input" id="field2" name="prof1" type="number" placeholder="3" data-items="8"/></label>
-                <label>Upload child picture<input type="file" name="pic" accept="image/*"></label>
-                <label>Allergies <input  class="input" id="field3" name="prof1" type="text" placeholder="avocado,bamba" data-items="8"/></label>
+                <label>Child Name:<input  class="input name" id="name" name="prof1" type="text" placeholder="Moshe levi" data-items="8"/></label>
+                <label>Age <input  class="input age" id="age" name="prof1" type="number" placeholder="3" data-items="8"/></label>
+                <label>Upload child picture<input id="picture-child" type="file" name="pic" accept="image/*"></label>
+                <label>Allergies <input  class="input allergies" id="allergies" name="prof1" type="text" placeholder="avocado,bamba" /></label>
                 <button type="button" class="remove-field btn-danger">Remove</button>
               </div>
             </div>
@@ -75,8 +71,7 @@
         </div><br><br><br>
         <div class="form-group row">
           <div class="col-sm-offset-2 col-sm-10">
-            <input type="button" onclick="submitFormParent()" value="Submitt">
-            <!--<button type="submit" class="btn btn-primary" onclick="submitFormParent()">Register</button>-->
+            <input class="btn btn-primary" type="button" onclick="submitFormParent()" value="Register">
           </div>
         </div>
       </form>
@@ -85,15 +80,15 @@
     <div id="sitter-register">
       <form id="sitter-form">
         <div class="form-group row">
-          <label for="inputAge3" class="col-sm-2 form-control-label">Minimum Age</label>
+          <label for="minAge" class="col-sm-2 form-control-label">Minimum Age</label>
           <div class="col-sm-10">
-            <input  class="input" name="prof1" type="number" placeholder="3" id="inputAge3" />
+            <input  class="input" name="prof1" type="number" placeholder="3" id="minAge" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputMaxAge3" class="col-sm-2 form-control-label">Maximum Age</label>
+          <label for="maxAge" class="col-sm-2 form-control-label">Maximum Age</label>
           <div class="col-sm-10">
-            <input  class="input" id="inputMaxAge3" name="prof1" type="number" placeholder="6" />
+            <input  class="input" id="maxAge" name="prof1" type="number" placeholder="6" />
           </div>
         </div>
         <div class="form-group row">
@@ -147,19 +142,19 @@
           <div class="col-sm-10">
             <div class="address">
               <label>
-                <input type="text">
+                <input type="text" id="sitter-city">
                 City
               </label>
             </div>
             <div class="address">
               <label>
-                <input type="text">
+                <input type="text" id="sitter-street">
                 Street
               </label>
             </div>
             <div class="address">
               <label>
-                <input type="number">
+                <input type="number" id="sitter-houseNumber">
                 House Number
               </label>
             </div>
@@ -175,7 +170,7 @@
         </div>
         <div class="form-group row">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-primary" onclick="">Register</button>
+            <input class="btn btn-primary" type="button" onclick="submitFormSitter()" value="Register">
           </div>
         </div>
       </form>
