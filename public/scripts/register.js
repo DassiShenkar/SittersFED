@@ -28,9 +28,8 @@ $('#controller input').on('change', function() {
 
 function submitFormParent() {
   var arrayJSON = {};
-
   arrayJSON["email"] = "parent18@gmail.com";
-  arrayJSON["password"] = "1234";
+  arrayJSON["password"] = "123443t43g43";
   arrayJSON["name"] = "Arel Gindos";
   arrayJSON["profilePictureURL"] = "www.google.com";
   arrayJSON["fullPictureURL"] = "www.google1.com";
@@ -41,44 +40,23 @@ function submitFormParent() {
     "street": document.getElementById("street").value,
     "houseNumber": document.getElementById("houseNumber").value
   };
-
-
-  // $.ajax({
-  //   url: 'https://sitters-ws.herokuapp.com/getParentFavoriteSitters',
-  //   dataType: 'json',
-  //   type : 'post',
-  //   contentType: 'application/json',
-  //   data: JSON.stringify(arrayJSON),
-  //   success: function (data) {
-  //     alert(data);
-  //   }.bind(this),
-  //   error: function(xhr, status, err) {
-  //     console.error(this.props.url, status, err.toString());
-  //     alert( err.toString());
-  //   }
-  // });
-
+  
 
   var json = JSON.stringify(arrayJSON);
-  alert(json);
-  // console.log(json);
+  alert('before ajax');
   $.ajax({
     url: 'https://sitters-ws.herokuapp.com/insertParent',
-    type: "POST",
-    data: json,
     dataType: 'json',
-    processData: false,
+    type : 'post',
     contentType: 'application/json',
+    data: json,
     success: function (data) {
-      alert(1234);
-      alert(data);
+      console.log(data);
     }.bind(this),
-    error: function (xhr, status, err) {
+    error: function(xhr, status, err) {
       console.error(this.props.url, status, err.toString());
-      alert(2222);
     }.bind(this)
   });
-
 }
 
 
