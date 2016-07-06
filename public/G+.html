@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+  <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -8,18 +9,53 @@
 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 <script>
   function onSignIn(googleUser) {
+
+
+
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
+
+    localStorage.name = profile.getName();
+    localStorage.parentEmail = profile.getEmail();
+    localStorage.profilePicture = profile.getImageUrl();
+
+
+    var user ;
+    $.ajax({
+      url: 'http://localhost:3000/getParentByEmail',
+      dataType: 'json',
+      type : 'post',
+      contentType: 'application/json',
+      data: JSON.stringify({ 'email': profile.getEmail()}),
+      success: function (data) {
+        if(data.Error){    // if Error exists move to signIn
+          location.replace("registerform.html");
+          //console.log(data.Error);
+        }
+        else{
+          location.replace("feed-before.html");
+        }
+      }.bind(this),
+      error: function(xhr, status, err) {
+        alert(err.toString());
+        //console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+
+    //location.replace("feed-after.html");
+
+//    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+//    console.log('Full Name: ' + profile.getName());
+//    console.log('Given Name: ' + profile.getGivenName());
+//    console.log('Family Name: ' + profile.getFamilyName());
+//    console.log("Image URL: " + profile.getImageUrl());
+//    console.log("Email: " + profile.getEmail());
 
     // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+//    var id_token = googleUser.getAuthResponse().id_token;
+//    console.log("ID Token: " + id_token);
+
+
   };
 </script>
 </body>
