@@ -12,201 +12,224 @@
   <script src="scripts/cd/jquery.iframe-transport.js"></script>
   <script src="scripts/cd/jquery.fileupload.js"></script>
   <script src="scripts/cd/jquery.cloudinary.js"></script>
+  <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
-    <div id="controller">
-      <h2>I am a:</h2>
-      <label><input id="parentchosen" type="radio" value="parent" name="radiochoose">Parent</label>
-      <label><input id="sitterchosen" type="radio" value="sitter" name="radiochoose">Sitter</label>
+    <div id="login-box">
+      <div class="logo-container">
+        <img id="logo" src="./images/logo-sitters.png" alt="">
+      </div>
+      <h1>Sign up</h1>
+      <label><input id="parentchosen" type="radio" value="parent" name="radiochoose" checked="checked">I'm a Parent</label>
+      <label><input id="sitterchosen" type="radio" value="sitter" name="radiochoose">I'm a Sitter</label>
+      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+      <p>Already have an account? <a>Log in</a></p>
     </div>
-
-    <div id="parent-register">
-      <form>
-        <div class="form-group row">
-          <label for="picture-file" class="col-sm-2 form-control-label">Upload full picture</label>
-          <div class="col-sm-10">
-            <!--<input type="file" name="pic" accept="image/*">-->
-
-
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="partner" class="col-sm-2 form-control-label">Partner Name</label>
-          <div class="col-sm-10">
-            <input type="text" name="partner-name" id="partner">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2">Address</label>
-          <div class="col-sm-10">
-            <div class="address">
-              <label>
-                <input type="text" id="city">
-                City
-              </label>
-            </div>
-            <div class="address">
-              <label>
-                <input type="text" id="street">
-                Street
-              </label>
-            </div>
-            <div class="address">
-              <label>
-                <input type="number" id="houseNumber">
-                House Number
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2">Childes</label>
-          <div class="multi-field-wrapper col-sm-10">
-            <div class="multi-fields">
-              <div class="multi-field">
-                <label>Child Name:<input  class="input name" id="name" name="prof1" type="text" placeholder="Moshe levi" data-items="8"/></label>
-                <label>Age <input  class="input age" id="age" name="prof1" type="number" placeholder="3" data-items="8"/></label>
-                <label>Upload child picture<input id="picture-child" type="file" name="pic" accept="image/*"></label>
-                <label>Allergies <input  class="input allergies" id="allergies" name="prof1" type="text" placeholder="avocado,bamba" /></label>
-                <button type="button" class="remove-field btn-danger">Remove</button>
-              </div>
-            </div>
-            <button type="button" class="btn add-field btn-primary">Add child</button>
-          </div>
-        </div><br><br><br>
-        <div class="form-group row">
-          <div class="col-sm-offset-2 col-sm-10">
-            <input class="btn btn-primary" type="button" onclick="submitFormParent()" value="Register">
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <div id="sitter-register">
-      <form id="sitter-form">
-        <div class="form-group row">
-          <label for="minAge" class="col-sm-2 form-control-label">Minimum Age</label>
-          <div class="col-sm-10">
-            <input  class="input" name="prof1" type="number" placeholder="3" id="minAge" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="maxAge" class="col-sm-2 form-control-label">Maximum Age</label>
-          <div class="col-sm-10">
-            <input  class="input" id="maxAge" name="prof1" type="number" placeholder="6" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="hourFee" class="col-sm-2 form-control-label">Hour Fee in $</label>
-          <div class="col-sm-10">
-            <input  class="input" id="hourFee" name="prof1" type="number" placeholder="20" />
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2">Working Hours</label>
-          <div class="col-sm-10">
-            <div class="radio">
-              <label>
-                <input type="radio" name="workinghours" value="Mornings" checked>
-                Mornings
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="workinghours" value="Evenings">
-                Evenings
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="workinghours" value="All day">
-                All day
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2">Gender</label>
-          <div class="col-sm-10">
-            <div class="radio">
-              <label>
-                <input type="radio" name="gender" value="male" >
-                Male
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="gender" value="female" checked>
-                Female
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2">Address</label>
-          <div class="col-sm-10">
-            <div class="address">
-              <label>
-                <input type="text" id="sitter-city">
-                City
-              </label>
-            </div>
-            <div class="address">
-              <label>
-                <input type="text" id="sitter-street">
-                Street
-              </label>
-            </div>
-            <div class="address">
-              <label>
-                <input type="number" id="sitter-houseNumber">
-                House Number
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label class="col-sm-2">Upload Full Picture</label>
-          <div class="col-sm-10">
-            <div class="picture">
-              <input type="file" name="file" class="upload_field" id="picture-file">
-              <div class="progress_wrapper">
-                <div class="progress_bar"><div class="text"></div></div>
-              </div>
-              <div class="thumbnails" id="fullPicture">
-                <input type="hidden" id="pictureURL">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-offset-2 col-sm-10">
-            <input class="btn btn-primary" type="button" onclick="submitFormSitter()" value="Register">
-          </div>
-        </div>
-      </form>
-
-
+    <!--<div id="parent-register">-->
       <!--<form>-->
-        <!--<label>Minimum Age <input  class="input" id="field5" name="prof1" type="number" placeholder="3" /></label>-->
-        <!--<label>Maximum Age <input  class="input" id="field6" name="prof1" type="number" placeholder="6" /></label>-->
-        <!--<label>Hour Fee in $ <input  class="input" id="field7" name="prof1" type="number" placeholder="20" /></label>-->
-        <!--<h3>Working Hours</h3>-->
-        <!--<input type="radio" name="workinghours" value="Mornings" checked> Mornings<br>-->
-        <!--<input type="radio" name="workinghours" value="Evenings"> Evenings<br>-->
-        <!--<input type="radio" name="workinghours" value="All day"> All day<br>-->
-        <!--<h3>Gender</h3>-->
-        <!--<input type="radio" name="gender" value="male" checked> Male<br>-->
-        <!--<input type="radio" name="gender" value="female"> Female<br>-->
-        <!--<h3>Address:</h3>-->
-        <!--<label>City<input type="text"></label>-->
-        <!--<label>Street<input type="text"></label>-->
-        <!--<label>House Number<input type="number"></label>-->
-        <!--<label>Upload full picture<input type="file" name="pic" accept="image/*"></label><br>-->
-        <!--<button type="submit" class="btn btn-primary">Register</button>-->
-      <!--</form><button type="submit" class="btn btn-primary">Register</button>-->
+        <!--<div class="form-group row">-->
+          <!--<label for="picture-file" class="col-sm-2 form-control-label">Upload full picture</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--&lt;!&ndash;<input type="file" name="pic" accept="image/*">&ndash;&gt;-->
 
-    </div>
+
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label for="partner" class="col-sm-2 form-control-label">Partner Name</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<input type="text" name="partner-name" id="partner">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label class="col-sm-2">Address</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<div class="address">-->
+              <!--<label>-->
+                <!--<input type="text" id="city">-->
+                <!--City-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="address">-->
+              <!--<label>-->
+                <!--<input type="text" id="street">-->
+                <!--Street-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="address">-->
+              <!--<label>-->
+                <!--<input type="number" id="houseNumber">-->
+                <!--House Number-->
+              <!--</label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label class="col-sm-2">Childes</label>-->
+          <!--<div class="multi-field-wrapper col-sm-10">-->
+            <!--<div class="multi-fields">-->
+              <!--<div class="multi-field">-->
+                <!--<label>Child Name:<input  class="input name" id="name" name="prof1" type="text" placeholder="Moshe levi" data-items="8"/></label>-->
+                <!--<label>Age <input  class="input age" id="age" name="prof1" type="number" placeholder="3" data-items="8"/></label>-->
+                <!--<label>Upload child picture<input id="picture-child" type="file" name="pic" accept="image/*"></label>-->
+                <!--<label>Allergies <input  class="input allergies" id="allergies" name="prof1" type="text" placeholder="avocado,bamba" /></label>-->
+                <!--<button type="button" class="remove-field btn-danger">Remove</button>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<button type="button" class="btn add-field btn-primary">Add child</button>-->
+          <!--</div>-->
+        <!--</div><br><br><br>-->
+        <!--<div class="form-group row">-->
+          <!--<div class="col-sm-offset-2 col-sm-10">-->
+            <!--<input class="btn btn-primary" type="button" onclick="submitFormParent()" value="Register">-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</form>-->
+    <!--</div>-->
+
+    <!--<div id="sitter-register">-->
+      <!--<form id="sitter-form">-->
+        <!--<div class="form-group row">-->
+          <!--<label for="minAge" class="col-sm-2 form-control-label">Minimum Age</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<input  class="input" name="prof1" type="number" placeholder="3" id="minAge" />-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label for="maxAge" class="col-sm-2 form-control-label">Maximum Age</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<input  class="input" id="maxAge" name="prof1" type="number" placeholder="6" />-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label for="hourFee" class="col-sm-2 form-control-label">Hour Fee in $</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<input  class="input" id="hourFee" name="prof1" type="number" placeholder="20" />-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label class="col-sm-2">Working Hours</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<div class="radio">-->
+              <!--<label>-->
+                <!--<input type="radio" name="workinghours" value="Mornings" checked>-->
+                <!--Mornings-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="radio">-->
+              <!--<label>-->
+                <!--<input type="radio" name="workinghours" value="Evenings">-->
+                <!--Evenings-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="radio">-->
+              <!--<label>-->
+                <!--<input type="radio" name="workinghours" value="All day">-->
+                <!--All day-->
+              <!--</label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label class="col-sm-2">Gender</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<div class="radio">-->
+              <!--<label>-->
+                <!--<input type="radio" name="gender" value="male" >-->
+                <!--Male-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="radio">-->
+              <!--<label>-->
+                <!--<input type="radio" name="gender" value="female" checked>-->
+                <!--Female-->
+              <!--</label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label class="col-sm-2">Address</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<div class="address">-->
+              <!--<label>-->
+                <!--<input type="text" id="sitter-city">-->
+                <!--City-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="address">-->
+              <!--<label>-->
+                <!--<input type="text" id="sitter-street">-->
+                <!--Street-->
+              <!--</label>-->
+            <!--</div>-->
+            <!--<div class="address">-->
+              <!--<label>-->
+                <!--<input type="number" id="sitter-houseNumber">-->
+                <!--House Number-->
+              <!--</label>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<label class="col-sm-2">Upload Full Picture</label>-->
+          <!--<div class="col-sm-10">-->
+            <!--<div class="picture">-->
+              <!--<input type="file" name="file" class="upload_field" id="picture-file">-->
+              <!--<div class="progress_wrapper">-->
+                <!--<div class="progress_bar"><div class="text"></div></div>-->
+              <!--</div>-->
+              <!--<div class="thumbnails" id="fullPicture">-->
+                <!--<input type="hidden" id="pictureURL">-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group row">-->
+          <!--<div class="col-sm-offset-2 col-sm-10">-->
+            <!--<input class="btn btn-primary" type="button" onclick="submitFormSitter()" value="Register">-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</form>-->
+
+    <!--</div>-->
+    <script>
+
+      function onSignIn(googleUser) {
+
+      // Useful data for your client-side scripts:
+      var profile = googleUser.getBasicProfile();
+
+      localStorage.name = profile.getName();
+      localStorage.parentEmail = profile.getEmail();
+      localStorage.profilePicture = profile.getImageUrl();
+
+
+      var user ;
+      $.ajax({
+        url: 'http://localhost:3000/getParentByEmail',
+        dataType: 'json',
+        type : 'post',
+        contentType: 'application/json',
+        data: JSON.stringify({ 'email': profile.getEmail()}),
+        success: function (data) {
+          if(data.Error){    // if Error exists move to signIn
+            location.replace("registerform.html");
+            //console.log(data.Error);
+          }
+          else{
+            location.replace("feed-before.html");
+          }
+        }.bind(this),
+        error: function(xhr, status, err) {
+          alert(err.toString());
+          //console.error(this.props.url, status, err.toString());
+        }.bind(this)
+      });
+      }
+    </script>
 <script src="scripts/register.js"></script>
 <script src="scripts/cloudinary.js"></script>
 </body>
