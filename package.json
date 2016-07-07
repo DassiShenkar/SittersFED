@@ -6,7 +6,9 @@
   "description": "Code from the React tutorial.",
   "main": "server.js",
   "dependencies": {
+    "blueimp-file-upload": "^9.12.5",
     "body-parser": "^1.4.3",
+    "cloudinary-jquery-file-upload": "^2.1.1",
     "express": "^4.4.5"
   },
   "devDependencies": {},
@@ -15,7 +17,7 @@
     "start": "node server.js"
   },
   "author": "Arel Gindos & Dassi Rozen",
-  "engines" : {
-    "node" : "0.12.x"
+  "engines": {
+    "node": "0.12.x"
   }
 }

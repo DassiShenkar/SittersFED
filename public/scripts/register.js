@@ -2,6 +2,7 @@
  * Created by Arel on 29/06/2016.
  */
 
+// clone childes field with click "add child"
 $('.multi-field-wrapper').each(function() {
   var $wrapper = $('.multi-fields', this);
   $(".add-field", $(this)).click(function(e) {
@@ -28,17 +29,15 @@ $('#controller input').on('change', function() {
 
 function submitFormParent() {
   var arrayJSON = {};
-  arrayJSON["email"] = "parent19@gmail.com";
-  arrayJSON["password"] = "123wwst43g43";
-  arrayJSON["name"] = "Arel Gindos";
-  arrayJSON["profilePictureURL"] = "www.google.com";
-  arrayJSON["fullPictureURL"] = "www.google1.com";
+  arrayJSON["email"] = localStorage.parentEmail;                // get email from G+
+  //arrayJSON["password"] = "12gwgew3wwst4gwgew3g43";
+  arrayJSON["name"] = localStorage.name;                        //get name from G+
+  arrayJSON["profilePictureURL"] =  localStorage.profilePicture;//get profile picture from G+
   arrayJSON["partner"] = document.getElementById("partner").value;
 
   var childes = [];
   var names = $('.name');
   var ages = $('.age');
-  //TODO: add picture when cloudinary is done
   var allergies = $('.allergies');
   var length = names.length;
   for(var i = 0; i < length; i ++){
@@ -57,7 +56,7 @@ function submitFormParent() {
 
 
   var json = JSON.stringify(arrayJSON);
-  console.log(json);
+  //console.log(json);
   $.ajax({
     url: 'https://sitters-ws.herokuapp.com/insertParent',
     dataType: 'json',
@@ -66,26 +65,33 @@ function submitFormParent() {
     data: json,
     success: function (data) {
       console.log(data);
+      window.location = "feed-before.html";
     }.bind(this),
     error: function(xhr, status, err) {
+      //TODO: in error
       console.error(this.props.url, status, err.toString());
     }.bind(this)
   });
 }
 
+
+// arrayJSON["email"] = localStorage.parentEmail;//"parent19@gmail.com";
+// arrayJSON["password"] = "12gwgew3wwst4gwgew3g43";
+// arrayJSON["name"] = localStorage.name;//"Arel Gindos";
+// arrayJSON["profilePictureURL"] =  localStorage.profilePicture;//"www.google.com";
+
 function submitFormSitter() {
   var arrayJSON = {};
-  arrayJSON["email"] = "sitter9@gmail.com";
-  arrayJSON["password"] = "1vfsrherherhfwg3";
-  arrayJSON["name"] = "Yoel kora";
+  arrayJSON["email"] = localStorage.parentEmail;
+  arrayJSON["password"] = "1vfsrherhefwfwrhfwg3";
+  arrayJSON["name"] = localStorage.name;
   arrayJSON["maxAge"] = document.getElementById("maxAge").value;
   arrayJSON["minAge"] = document.getElementById("minAge").value;
   arrayJSON["hourFee"] = document.getElementById("hourFee").value;
   arrayJSON["workingHours"] = $('input[name=workinghours]:checked', '#sitter-form').val();
   arrayJSON["gender"] = $('input[name=gender]:checked', '#sitter-form').val();
-  arrayJSON["profilePictureURL"] = "www.google.com";
-  arrayJSON["fullPictureURL"] = "www.google1.com";
-  //TODO: add picture when cloudinary is done
+  arrayJSON["profilePictureURL"] = localStorage.profilePicture;
+  arrayJSON["fullPictureURL"] = document.getElementById('pictureURL').value;
   arrayJSON["address"] = {
     "city": document.getElementById("sitter-city").value,
     "street": document.getElementById("sitter-street").value,
@@ -93,7 +99,7 @@ function submitFormSitter() {
   };
 
   var json = JSON.stringify(arrayJSON);
-  console.log(json);
+ // console.log(json);
   $.ajax({
     url: 'https://sitters-ws.herokuapp.com/insertSitter',
     dataType: 'json',
@@ -102,8 +108,10 @@ function submitFormSitter() {
     data: json,
     success: function (data) {
       console.log(data);
+      window.location = "feed-before.html";
     }.bind(this),
     error: function(xhr, status, err) {
+      //TODO: in error
       console.error(this.props.url, status, err.toString());
     }.bind(this)
   });
