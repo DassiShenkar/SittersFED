@@ -13,9 +13,7 @@
   <script src="scripts/cd/jquery.fileupload.js"></script>
   <script src="scripts/cd/jquery.cloudinary.js"></script>
   <script   src="https://code.jquery.com/jquery-3.0.0.min.js"   integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="   crossorigin="anonymous"></script>
-  <meta name="google-signin-scope" content="profile email">
-  <meta name="google-signin-client_id" content="531479800503-6lvg1h8gotm5e80p7vcll0q3hfilbg81.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 <body>
     <div id="login-box">
@@ -195,41 +193,7 @@
       <!--</form>-->
 
     <!--</div>-->
-    <script>
 
-      function onSignIn(googleUser) {
-
-      // Useful data for your client-side scripts:
-      var profile = googleUser.getBasicProfile();
-
-      localStorage.name = profile.getName();
-      localStorage.parentEmail = profile.getEmail();
-      localStorage.profilePicture = profile.getImageUrl();
-
-
-      var user ;
-      $.ajax({
-        url: 'http://localhost:3000/getParentByEmail',
-        dataType: 'json',
-        type : 'post',
-        contentType: 'application/json',
-        data: JSON.stringify({ 'email': profile.getEmail()}),
-        success: function (data) {
-          if(data.Error){    // if Error exists move to signIn
-            location.replace("registerform.html");
-            //console.log(data.Error);
-          }
-          else{
-            location.replace("feed-before.html");
-          }
-        }.bind(this),
-        error: function(xhr, status, err) {
-          alert(err.toString());
-          //console.error(this.props.url, status, err.toString());
-        }.bind(this)
-      });
-      }
-    </script>
 <script src="scripts/register.js"></script>
 <script src="scripts/cloudinary.js"></script>
 </body>

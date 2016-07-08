@@ -1,0 +1,25 @@
+#login-box {
+  width:33%;
+  margin:36px auto;
+  padding: 28px;
+  background: #7ad0f8;
+}
+
+#login-box #logo-container {
+  text-align: center;
+}
+
+#login-box h1 {
+  font-family: "Avenir-heavy",Helvetica;
+  color: #fff;
+  margin: 25px 0;
+  font-size: 48px;
+}
+
+#button-container {
+  width: 120px;
+  margin: 0 auto;
+}
+
+
+
