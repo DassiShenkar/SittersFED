@@ -5,7 +5,7 @@ var LoginForm = React.createClass({
     return (
       <div id="login-form">
         <div id="logo-container">
-          <img id="logo" src="./images/logo-sitters.png" alt="sitters logo" title="sitters-logo"/>
+          <img id="logo" src="./static/images/logo-sitters.png" alt="sitters logo" title="sitters-logo"/>
         </div>
         <h1>Sign In</h1>
         <div className="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
