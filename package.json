@@ -2,7 +2,6 @@
   "name": "sitters",
   "version": "0.0.0",
   "private": true,
-  "license": "see LICENSE file",
   "description": "Code from the React tutorial.",
   "main": "server.js",
   "dependencies": {

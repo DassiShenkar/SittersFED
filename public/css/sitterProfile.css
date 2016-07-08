@@ -1,26 +1,26 @@
 @font-face {
   font-family: Avenir-heavy;
-  src: url(../avenir-lt-std/AvenirLTStd-Heavy.woff);
+  src: url(../static/fonts/avenir-lt-std/AvenirLTStd-Heavy.woff);
 }
 
 @font-face {
   font-family: Avenir-heavy-oblique;
-  src: url(../avenir-lt-std/AvenirLTStd-HeavyOblique.woff);
+  src: url(../static/fonts/avenir-lt-std/AvenirLTStd-HeavyOblique.woff);
 }
 
 @font-face {
   font-family: Avenir-book;
-  src: url(../avenir-lt-std/AvenirLTStd-Book.woff);
+  src: url(../static/fonts/avenir-lt-std/AvenirLTStd-Book.woff);
 }
 
 @font-face {
   font-family: Avenir-Light;
-  src: url(../avenir-lt-std/AvenirLTStd-Light.woff);
+  src: url(../static/fonts/avenir-lt-std/AvenirLTStd-Light.woff);
 }
 
 @font-face {
   font-family: Avenir-light-oblique;
-  src: url(../avenir-lt-std/AvenirLTStd-LightOblique.woff);
+  src: url(../static/fonts/avenir-lt-std/AvenirLTStd-LightOblique.woff);
 }
 
 * {
