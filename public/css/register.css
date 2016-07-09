@@ -1,6 +1,8 @@
 #login-box {
   width:33%;
-  margin:0px auto;
+  margin:36px auto;
+  padding: 28px;
+  text-align: center;
 }
 
 #login-box h1 {
@@ -10,27 +12,18 @@
   font-size: 48px;
 }
 
-.logo-container {
-  background: #7ad0f8;
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
+.radio-group {
+  width: 60%;
   margin: 0 auto;
-  text-align: center;
-  padding: 6% 0;
-  margin-top: 42px;
 }
 
 #login-box label {
   display: block;
+  text-align: left;
 }
 
 #login-box input[type=radio] {
   margin-right: 2%;
-}
-
-#login-box .g-signin2 {
-  margin: 25px auto;
 }
 
 #parent-register , #sitter-register{

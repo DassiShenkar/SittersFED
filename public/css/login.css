@@ -2,21 +2,17 @@
   width:33%;
   margin:36px auto;
   padding: 28px;
-  background: #7ad0f8;
-}
-
-#login-box #logo-container {
   text-align: center;
 }
 
 #login-box h1 {
-  font-family: "Avenir-heavy",Helvetica;
-  color: #fff;
+  font-family: "Avenir-heavy","Helvetica Neue", Helvatica, Arial, sans-serif ;
+  color: #7ad0f8;
   margin: 25px 0;
   font-size: 48px;
 }
 
-#button-container {
+.g-signin2 {
   width: 120px;
   margin: 0 auto;
 }
